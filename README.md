@@ -2,9 +2,11 @@
 
 ## Introduction
 
-This is a project to show Kubernetes orchestration. Kubernetes is an orchestrator. If you just want to run microservice applications in a docker container, you do not need it. Just docker will help you. For example to run this hello world like app, build the image, run the app and do a request with your favorite browser.
+This is a project to show Kubernetes orchestration. Kubernetes is an orchestrator. If you just want to run microservice applications in a docker container, you do not need it but if you continue reading you will find out why you probably do need it anyway.  
 
 ## Just Docker, No Kubernetes
+
+Just docker will help you if you do not want orchestration. Just build the image, run the app and do a request with your favorite browser.
 
 This is what you can do. I assume you have docker and git installed on your local machine.
 
@@ -20,11 +22,13 @@ Open http://localhost:5004/
 
 ## Kubernetes
 
-Now you have the application running. If the container crashes or gets too many requests, it is not usuable any more. Kubernetes Deployments can help you! Kubernetes Deployments define the number of replicas of a pod. A pod holds a container and a containers holds a microservice. If one container crashes, the podd is removed and a new pod is created because of the required number of replicas.
+Now you have the application running. If the container crashes or gets too many requests, it is not usuable any more. Kubernetes Deployments can help you! Kubernetes Deployments define the number of replicas of a pod. A pod holds a container and a containers holds a microservice. If one container crashes (do not worry we have 4 left), the Pod is removed and a new pod is created because of the required number of replicas.
 
-In addition, docker service is created as well. This is to help us accessing our microservice from the outside world. A service file has labels that are also used in the deployment file to show the relation. Moreover, the service file has an inner port (port) used by the microservice and an outer port (NodePort) to access it from the outside world (such as the testers or developers laptop).
+In addition, a kubernetes service is created as well. This is to help us accessing our microservice from the outside world. A service file has labels that are also used in the deployment file to show the relation. Moreover, the service file has an inner port (port) used by the microservice and an outer port (NodePort) to access it from the outside world (such as the testers or developers laptop).
 
-I assume you have kubernetes running and some environment to deploy to (this can be just minikube running locally)
+I assume you have kubernetes running and some environment to deploy to (this can be just minikube running locally). We recommend [minkube 0.27](https://github.com/kubernetes/minikube/releases/tag/v0.27.0) because of its stability. First you should install Kubernetes. We recommend doing that by changing you docker settings and apply them as shown below.
+
+![image](https://raw.githubusercontent.com/DaanAcohen/ShowOrchestration/master/InstallKubernetes.png)
 
 ```bash
 git clone https://github.com/DaanAcohen/ShowOrchestration.git
