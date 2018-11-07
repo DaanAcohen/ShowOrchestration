@@ -37,7 +37,7 @@ For minikube users:
 ```bash
 minikube dashboard
 ```
-Open your kubernetes dashboard. If you do not have minikube installed, it shall depend on your cloud provider.
+Open your kubernetes dashboard (it should look like as shown below). If you do not have minikube installed, the url shall depend on your cloud provider.
 In the "Overview", you can see
 5 Pods (defined in the deployment file)
 1 Replicate Set (defined in the deployment file) to describe the number of pods
@@ -49,4 +49,7 @@ This should be something like:
 http://192.168.0.111:30002/
 
 You are now running a microservice without depending on a single docker file.
+
+![image](https://raw.githubusercontent.com/DaanAcohen/ShowOrchestration/master/KubernetesOverview.png)
+
 
